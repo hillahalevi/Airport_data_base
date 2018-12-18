@@ -1,0 +1,27 @@
+Hi there :)
+I want to explain a bit about how my data base works 
+I have 5 base tables each starts with a specific id :
+# Plane       "pTable" : id,model_number,crew_needed,max_capacity_first_class,max_capacity_second_class
+# Flight      "fTable" : id,model_number,Date,source,destination
+# Customer    "cTable" : id,full_name,priority_number
+# Emplolyee   "eTable" : id,Job_title,seniority,birth_year,employer_id
+# Reservation "rTable" : id,customer_id,flight_id,class_wanted,max_baggage
+
+In addition I have  5 sub tables:
+
+#  F_E_FILE_NAME "feTable" :employee_id, flight_id
+#  P_D_FILE_NAME "pdTable" :date_reserved, plane_id
+#  D_E_FILE_NAME "deTable" :date_reserved, employee_id
+#  MAX_F_FLIGHT "mxfirstfTable" :max_capacity_first, flight_id
+#  MAX_E_FLIGHT "mxeconomyfTable" :max_capacity_second, flight id 
+
+this sub tables help me in the tasks of assigning a plane and a crew and check if my flight is available
+if I want to schedule a flight  I need to assign a plane and a crew:
+for that I will check my planes table for planes of that model then with P_D i will see if one of then is available in our date.
+again with the crew i will take from my plane table the info about the crew needed and get all of this employies and the check my D_E if their avaliable in my date.
+if I mannaged to assign crew and a plane I will update my tables "P_D D_E and F_E so when I will need to get a flight using its id I can restore its assigned crew. 
+
+if I want to add a reservation i will check my flight table if this flight exict again with the customer id then i will pull out all the reservation for this flight
+count all those with my class type and check my max capaxity table if theres room for one more.
+
+so thank you for your time - hope you have a great life!
